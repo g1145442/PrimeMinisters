@@ -17,15 +17,19 @@ public class Translator extends Object
          */
         private Table outputTable;
   
-  
-        /**
-	 * トランスレータのコンストラクタ。
-	 */
-	public Translator()
-	{
-		super();
-		return;
-	}
+
+		/**
+		 * トランスレータのコンストラクタ。
+		 */
+		public Translator()
+		{
+
+			super();
+			Downloader downloader = new Downloader();
+			downloader.downloadCSV();
+			
+			return;
+		}
 
 	/**
 	 * 総理大臣のCSVファイルをHTMLページへ変換する。

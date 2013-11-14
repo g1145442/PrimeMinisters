@@ -1,5 +1,13 @@
 package primeministers;
 
+import java.net.URL;
+import java.net.URLConnection;
+import java.io.InputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+
 /**
  * ダウンローダ：総理大臣のCSVファイル・画像ファイル・サムネイル画像ファイルをダウンロードする。
  */
@@ -21,16 +29,41 @@ public class Downloader extends IO
          *ダウンローダのコンストラクタ。
          */
         
-        public Downloader(){
-                return;
-        }
+		public Downloader(){
+			this.url="http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/CSV2HTML/PrimeMinisters/PrimeMinisters.csv";
+			return;
+		}
 
         /*
          *総理大臣の情報を記しCSVファイルをダウンロードする。
          */
-        public void downloadCSV(){
-                return;
-        }
+		public void downloadCSV(){
+			URL csvURL;
+			InputStream in;
+			FileOutputStream out;
+			URLConnection conect;
+			try{
+				
+				csvURL = new URL(url);
+				conect = csvURL.openConnection();
+				in = conect.getInputStream();
+				
+				File file = new File("CSV/PrimeMinisters.csv");
+				out = new FileOutputStream(file,false);
+				int b;
+				
+				while((b = in.read())!=-1){
+					out.write(b);
+				}
+				in.close();
+				out.close();
+			}catch(IOException e){
+				System.out.println("e");
+			}finally{
+			}
+			return;
+		}
+
 
         /*
          *総理大臣の画像群をダウンロードする。
