@@ -41,31 +41,35 @@ public class Table extends Object
         }
 
         /*
-         *タプルを追加する。
+         *タプルを追加する。 (実装:今江)
          */
-        public void add(Tuple aTuple){
-                return;
+        public void add(Tuple aTuple)
+		{
+			this.tuples.add(aTuple);
+			return;
         }
 
         /*
-         *属性リストを応答する。
+         *属性リストを応答する。 (実装:今江)
          */
         public Attributes attributes(){
-                return null;
+			return this.attributes;
         }
 
         /*
          *属性リストを設定する。
          */
-        public void attributes(Attributes instanceOfAttributes){
-                return;
+        public void attributes(Attributes instanceOfAttributes)
+		{
+			//Attributesの仕様がわからないので未実装
+			return;
         }
 
         /*
-         *画像群を応答する。
+         *画像群を応答する。 (実装:今江)
          */
         public ArrayList<BufferedImage> images(){
-                return null;
+                return this.images;
         }
 
         /*
@@ -76,10 +80,10 @@ public class Table extends Object
         }
 
         /*
-         *サムネイル画像群を応答する。
+         *サムネイル画像群を応答する。 (実装:今江)
          */
         public ArrayList<BufferedImage> thumbnails(){
-                return null;
+                return this.thumbnails;
         }
 
         /*
@@ -90,9 +94,9 @@ public class Table extends Object
         }
 
         /*
-         *タプル群を応答する。
+         *タプル群を応答する。 (実装:今江)
          */
         public ArrayList<Tuple> tuples(){
-                return null;
+                return this.tuples;
         }
 }
