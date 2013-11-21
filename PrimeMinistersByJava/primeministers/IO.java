@@ -1,8 +1,20 @@
 package primeministers;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
-import java.util.ArrayList;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+
 /**
  * 入出力：リーダ・ダウンローダ・ライタを抽象する。
  */
@@ -44,7 +56,7 @@ public abstract class IO extends Object
          *入出力する際の文字コードを応答するクラスメソッド。
          */
         public static String encodingSymbol(){
-                return null;
+			return "UTF-8";
         }
 
         /*
@@ -52,19 +64,27 @@ public abstract class IO extends Object
          */
         public static ArrayList<String> readTextFromFile(File aFile)
 		{
-			ArrayList<String> readText;
+			ArrayList<String> aCollection = new ArrayList<String>();
 			
-			try{
-				FileReader filereader = new FileReader(afile);
-				int readLine = filereader.read();
-				readText.add(readLine);
-			}catch(FileNotFoundException fileNotFoundException){
-				fileNotFoundException.PrintStackTrace();
-			}catch(IOException iOException){
-				iOException.PrintStackTrace();
+			try
+			{
+				FileInputStream inputStream = new FileInputStream(aFile);
+				InputStreamReader inputStreamReader = new InputStreamReader(inputStream, IO.encodingSymbol());
+				BufferedReader inputReader = new BufferedReader(inputStreamReader);
+				
+				String aString = null;
+				while ((aString = inputReader.readLine()) != null)
+				{
+					aCollection.add(aString);
+				}
+				
+				inputReader.close();
 			}
+			catch (FileNotFoundException anException) { anException.printStackTrace(); }
+			catch (UnsupportedEncodingException anException) { anException.printStackTrace(); }
+			catch (IOException anException) { anException.printStackTrace(); }
 			
-			return readText;
+			return aCollection;
         }
         
         /*
@@ -72,40 +92,83 @@ public abstract class IO extends Object
          */
         public static ArrayList<String> readTextFromFile(String fileString)
 		{
-			ArrayList<String> lineList;
-			String[] text = text.split(",", 0);
-			for(String str : text)
-			{
-				lineList.add(str);
-			}
-			
-			return lineList;
+			File aFile = new File(fileString);
+			ArrayList<String> aCollection = IO.readTextFromFile(aFile);
+			return aCollection;
         }
 
         /*
          *指定されたURL文字列からテキストを読み込んで、それを行リストにして応答するクラスメソッド。
          */
         public static ArrayList<String> readTextFromURL(String urlString){
-                return null;
+			URL aURL = null;
+			try { aURL = new URL(urlString); }
+			catch (MalformedURLException anException) { anException.printStackTrace(); }
+			ArrayList<String> aCollection = IO.readTextFromURL(aURL);
+			return aCollection;
         }
         
         /*
          *指定されたURLからテキストを読み込んで、それを行リストにして応答するクラスメソッド。
          */
-        public static ArrayList<String> readTextFromURL(URL aURL){
-                return null;
+        public static ArrayList<String> readTextFromURL(URL aURL) {
+			ArrayList<String> aCollection = new ArrayList<String>();
+			
+			try
+			{
+				InputStream inputStream = aURL.openStream();
+				InputStreamReader inputStreamReader = new InputStreamReader(inputStream, IO.encodingSymbol());
+				BufferedReader inputReader = new BufferedReader(inputStreamReader);
+				
+				String aString = null;
+				while ((aString = inputReader.readLine()) != null)
+				{
+					aCollection.add(aString);
+				}
+				
+				inputReader.close();
+			}
+			catch (UnsupportedEncodingException anException) { anException.printStackTrace(); }
+			catch (IOException anException) { anException.printStackTrace(); }
+			
+			return aCollection;
         }
 
         /*
          *文字列をセパレータで分割したトークン列を応答するクラスメソッド。
          */
         public static ArrayList<String> splitString(String string,String separators){
-    			ArrayList<String> tokenList = new ArrayList<String>();
-				String str[] = string.split(separators);
-				for(int i=0;i<str.size();i++){
-					tokenList.add(str[i]);	
+			ArrayList<Integer> indexes;
+			int stop;
+			int index;
+			ArrayList<String> result;
+			
+			indexes = new ArrayList<Integer>();
+			indexes.add(-1);
+			stop = string.length();
+			for (index = 0; index < stop; index++)
+			{
+				if ((separators.indexOf(string.charAt(index))) >= 0)
+				{
+					indexes.add(index);
 				}
-				return tokenList;
+			}
+			indexes.add(stop);
+			stop = indexes.size() - 1;
+			result = new ArrayList<String>();
+			for (index = 0; index < stop; index++)
+			{
+				int start;
+				int end;
+				
+				start = indexes.get(index) + 1;
+				end = indexes.get(index + 1) - 1;
+				if (end >= start)
+				{
+					result.add(string.substring(start, end + 1));
+				}
+			}
+			return result;
         }
 
         /*
@@ -119,6 +182,20 @@ public abstract class IO extends Object
          *指定された行リストを、指定されたファイルに書き出すクラスメソッド。
          */
         public static void writeText(ArrayList<String> aCollection,File aFile){
+			try
+			{
+				FileOutputStream outputStream = new FileOutputStream(aFile);
+				OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream, IO.encodingSymbol());
+				BufferedWriter outputWriter = new BufferedWriter(outputStreamWriter);
+				
+				for (String aString : aCollection)
+				{
+					outputWriter.write(aString + "\n");
+				}
+				
+				outputWriter.close();
+			}
+			catch (IOException anException) { anException.printStackTrace(); }
 			return;
 		}
 
@@ -126,6 +203,8 @@ public abstract class IO extends Object
          *指定された行リストを、指定されたファイル名のファイルに書き出すクラスメソッド。
          */
         public static void writeText(ArrayList<String> aCollection,String fileString){
-                return;
+			File aFile = new File(fileString);
+			IO.writeText(aCollection, aFile);
+			return;
         }
 }
