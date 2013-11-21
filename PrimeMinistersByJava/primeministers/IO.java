@@ -50,15 +50,31 @@ public abstract class IO extends Object
         /*
          *指定されたファイルからテキストを読み込んで、それを行リストにして応答するクラスメソッド。
          */
-        public static ArrayList<String> readTextFromFile(File aFile){
-                return null;
+        public static ArrayList<String> readTextFromFile(File aFile)
+		{
+			ArrayList<String> readText;
+			
+			try{
+				FileReader filereader = new FileReader(afile);
+				int readLine = filereader.read();
+				readText.add(readLine);
+			}catch(FileNotFoundException fileNotFoundException){
+				fileNotFoundException.PrintStackTrace();
+			}catch(IOException iOException){
+				iOException.PrintStackTrace();
+			}
+			
+			return readText;
         }
         
         /*
          *指定されたファイル文字列からテキストを読み込んで、それを行リストにして応答するクラスメソッド。
          */
-        public static ArrayList<String> readTextFromFile(String fileString){
-                return null;
+        public static ArrayList<String> readTextFromFile(String fileString)
+		{
+			String[] text = text.split(",", 0);
+			
+			return null;
         }
 
         /*
