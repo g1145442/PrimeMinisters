@@ -28,7 +28,7 @@ public class Reader extends IO
          *ダウンロードしたCSVファイルを応答する。
          */
         public File filename(){
-                return null;
+            return filename;
         }
 
         /*
