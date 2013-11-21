@@ -69,14 +69,14 @@ public class Table extends Object
          *画像群を応答する。 (実装:今江)
          */
         public ArrayList<BufferedImage> images(){
-                return this.images;
+			return this.images;
         }
 
         /*
          *画像またはサムネイル画像の文字列を受け取って該当画像を応答する。
          */
         private BufferedImage picture(String aString){
-                return null;
+			return null;
         }
 
         /*
