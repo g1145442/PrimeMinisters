@@ -79,22 +79,27 @@ public abstract class IO extends Object
          *文字列をセパレータで分割したトークン列を応答するクラスメソッド。
          */
         public static ArrayList<String> splitString(String string,String separators){
-                return null;
+    			ArrayList<String> tokenList = new ArrayList<String>();
+				String str[] = string.split(separators);
+				for(int i=0;i<str.size();i++){
+					tokenList.add(str[i]);	
+				}
+				return tokenList;
         }
 
         /*
          *テーブルを応答する。
          */
         public Table table(){
-                return null;
+                return table;
         }
 
         /*
          *指定された行リストを、指定されたファイルに書き出すクラスメソッド。
          */
         public static void writeText(ArrayList<String> aCollection,File aFile){
-                return;
-        }
+			return;
+		}
 
         /*
          *指定された行リストを、指定されたファイル名のファイルに書き出すクラスメソッド。
