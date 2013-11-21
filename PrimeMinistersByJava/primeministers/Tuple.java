@@ -25,7 +25,7 @@ public class Tuple extends Object
         /*
          *属性リスト値リストからタプルを作るコンストラクタ。
          */
-        public Tuple(Attributes instanceOfAttributes,ArrayList<String> valueCollection){
+        public Tuple(Attributes instanceOfAttributes,ArrayList<String> valueCollection) {
                 return;
         }
 

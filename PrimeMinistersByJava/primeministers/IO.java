@@ -15,19 +15,19 @@ public abstract class IO extends Object
 	 */
 
         /*
-         *テーブル(表：スプレッドシート)を記憶するフィールド。
+         * テーブル(表：スプレッドシート)を記憶するフィールド。
          */
         protected Table table;
 
         /*
-         *入出力のコンストラクタ。
+         * 入出力のコンストラクタ。
          */
         public IO(){
                 return;
         }
         
         /*
-         *ファイルやディレクトリを削除するクラスメソッド。
+         * ファイルやディレクトリを削除するクラスメソッド。
          */
         public static void deleteFoleOrDirectory(File aFile){
                 return;
