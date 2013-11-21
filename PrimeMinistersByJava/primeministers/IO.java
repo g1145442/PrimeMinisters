@@ -34,14 +34,14 @@ public abstract class IO extends Object
         /*
          * 入出力のコンストラクタ。
          */
-        public IO(){
+        public IO() {
 			return;
         }
         
         /*
          * ファイルやディレクトリを削除するクラスメソッド。
          */
-        public static void deleteFoleOrDirectory(File aFile){
+        public static void deleteFoleOrDirectory(File aFile) {
 			return;
         }
 
