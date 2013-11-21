@@ -35,32 +35,32 @@ public abstract class IO extends Object
          * 入出力のコンストラクタ。
          */
         public IO(){
-                return;
+			return;
         }
         
         /*
          * ファイルやディレクトリを削除するクラスメソッド。
          */
         public static void deleteFoleOrDirectory(File aFile){
-                return;
+			return;
         }
 
         /*
-         *総理大臣ページのためのディレクトリ(存在しなければ作成して)を応答するメソッド。
+         * 総理大臣ページのためのディレクトリ(存在しなければ作成して)を応答するメソッド。
          */
         public static File directoryOfPages(){
-                return null;
+			return null;
         }
 
         /*
-         *入出力する際の文字コードを応答するクラスメソッド。
+         * 入出力する際の文字コードを応答するクラスメソッド。
          */
         public static String encodingSymbol(){
 			return "UTF-8";
         }
 
         /*
-         *指定されたファイルからテキストを読み込んで、それを行リストにして応答するクラスメソッド。
+         * 指定されたファイルからテキストを読み込んで、それを行リストにして応答するクラスメソッド。
          */
         public static ArrayList<String> readTextFromFile(File aFile)
 		{
@@ -88,7 +88,7 @@ public abstract class IO extends Object
         }
         
         /*
-         *指定されたファイル文字列からテキストを読み込んで、それを行リストにして応答するクラスメソッド。
+         * 指定されたファイル文字列からテキストを読み込んで、それを行リストにして応答するクラスメソッド。
          */
         public static ArrayList<String> readTextFromFile(String fileString)
 		{
@@ -98,7 +98,7 @@ public abstract class IO extends Object
         }
 
         /*
-         *指定されたURL文字列からテキストを読み込んで、それを行リストにして応答するクラスメソッド。
+         * 指定されたURL文字列からテキストを読み込んで、それを行リストにして応答するクラスメソッド。
          */
         public static ArrayList<String> readTextFromURL(String urlString){
 			URL aURL = null;
@@ -109,7 +109,7 @@ public abstract class IO extends Object
         }
         
         /*
-         *指定されたURLからテキストを読み込んで、それを行リストにして応答するクラスメソッド。
+         * 指定されたURLからテキストを読み込んで、それを行リストにして応答するクラスメソッド。
          */
         public static ArrayList<String> readTextFromURL(URL aURL) {
 			ArrayList<String> aCollection = new ArrayList<String>();
@@ -135,7 +135,7 @@ public abstract class IO extends Object
         }
 
         /*
-         *文字列をセパレータで分割したトークン列を応答するクラスメソッド。
+         * 文字列をセパレータで分割したトークン列を応答するクラスメソッド。
          */
         public static ArrayList<String> splitString(String string,String separators){
 			ArrayList<Integer> indexes;
@@ -172,14 +172,14 @@ public abstract class IO extends Object
         }
 
         /*
-         *テーブルを応答する。
+         * テーブルを応答する。
          */
         public Table table(){
                 return table;
         }
 
         /*
-         *指定された行リストを、指定されたファイルに書き出すクラスメソッド。
+         * 指定された行リストを、指定されたファイルに書き出すクラスメソッド。
          */
         public static void writeText(ArrayList<String> aCollection,File aFile){
 			try
@@ -200,7 +200,7 @@ public abstract class IO extends Object
 		}
 
         /*
-         *指定された行リストを、指定されたファイル名のファイルに書き出すクラスメソッド。
+         * 指定された行リストを、指定されたファイル名のファイルに書き出すクラスメソッド。
          */
         public static void writeText(ArrayList<String> aCollection,String fileString){
 			File aFile = new File(fileString);
