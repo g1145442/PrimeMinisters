@@ -72,9 +72,14 @@ public abstract class IO extends Object
          */
         public static ArrayList<String> readTextFromFile(String fileString)
 		{
+			ArrayList<String> lineList;
 			String[] text = text.split(",", 0);
+			for(String str : text)
+			{
+				lineList.add(str);
+			}
 			
-			return null;
+			return lineList;
         }
 
         /*
