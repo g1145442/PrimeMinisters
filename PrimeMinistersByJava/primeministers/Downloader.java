@@ -50,6 +50,9 @@ public class Downloader extends IO
 				
 				File file = new File("CSV/PrimeMinisters.csv");
 				out = new FileOutputStream(file,false);
+
+                                this.url="CSV/PrimeMinisters.csv";
+                                //CSVファイルを落としてきたので相対パスに変更
 				int b;
 				
 				while((b = in.read())!=-1){
@@ -99,14 +102,14 @@ public class Downloader extends IO
          *総理大臣の情報を記したCSVファイルの在処(URL)を文字列で応答する。
          */
         public String url(){
-                return null;
+                return this.url;
         }
 
         /*
          *総理大臣の情報の在処(URL)を文字列で応答するクラスメソッド。
          */
         public static String urlString(){
-                return null;
+                return "http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/CSV2HTML/PrimeMinisters/PrimeMinisters.csv";
         }
 
 
@@ -114,6 +117,6 @@ public class Downloader extends IO
          *総理大臣の情報を記したCSVファイル在処(URL)を文字列で応答するクラスメソッド。
          */
         public static String urlStringOfCSV(){
-                return null;
+                return "CSV/PrimeMinisters.csv";
         }
 }

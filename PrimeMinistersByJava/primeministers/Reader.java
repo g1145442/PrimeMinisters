@@ -1,6 +1,8 @@
 package primeministers;
 
 import java.io.File;
+
+
 /**
  * リーダ：総理大臣の情報を記したCSVファイルを読み込んでテーブルに仕立て上げる。
  */
@@ -21,6 +23,9 @@ public class Reader extends IO
          *リーダのコンストラクタ。
          */
         public Reader(){
+                Downloader download = new Downloader();
+                download.downloadCSV();
+                this.filename = new File("CSV/PrimeMinisters.csv");
                 return;
         }
 
