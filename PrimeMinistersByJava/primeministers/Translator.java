@@ -25,8 +25,8 @@ public class Translator extends Object
 		{
 
 			super();
-			Reader reader = new Reader();
-			
+		        Downloader download = new Downloader();
+                        download.downloadCSV();
 			return;
 		}
 
