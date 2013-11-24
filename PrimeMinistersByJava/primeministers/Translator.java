@@ -8,12 +8,12 @@ import javax.swing.JOptionPane;
 public class Translator extends Object
 {
 	/**
-	 *CSVにゆらいするテーブルを記憶するフィールド
+	 * CSVにゆらいするテーブルを記憶するフィールド
 	 */
 	private Table inputTable;
 	
 	/**
-	 *HTMLに由来するテーブルを記憶するフィールド
+	 * HTMLに由来するテーブルを記憶するフィールド
 	 */
 	private Table outputTable;
 	
@@ -47,7 +47,7 @@ public class Translator extends Object
 	
 	
 	/**
-	 *在位日数を経産して、それを文字列にして応答する。
+	 * 在位日数を経産して、それを文字列にして応答する。
 	 */
 	public String computeNumberOfDays(String periodString){
 		
@@ -55,15 +55,15 @@ public class Translator extends Object
 	}
 	
 	/**
-	 *サムネイル画像から画像へ飛ぶためのHTMP文字列を生成して、それを応答する。
+	 * サムネイル画像から画像へ飛ぶためのHTMP文字列を生成して、それを応答する。
 	 */
 	public String computeStringOfImage(String aString,Tuple aTuple,int no){
 		
 		return null;
 	}
 	/**
-	 *総理大臣のCSVファイルを基にしたテーブルから、HTMLページを基にするテーブルに変換して、
-	 *それを応答する。
+	 * 総理大臣のCSVファイルを基にしたテーブルから、HTMLページを基にするテーブルに変換して、
+	 * それを応答する。
 	 */
 	public Table table(Table aTable){
 		return null;

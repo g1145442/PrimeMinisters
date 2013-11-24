@@ -14,13 +14,13 @@ public class Reader extends IO
 	 * http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/CSV2HTML/PrimeMinistersJavaDoc/index.html
 	 */
 	
-	/*
-	 *総理大臣の情報を記したCSVファイルを記憶するフィールド。
+	/**
+	 * 総理大臣の情報を記したCSVファイルを記憶するフィールド。
 	 */
 	private File filename;
 	
-	/*
-	 *リーダのコンストラクタ。
+	/**
+	 * リーダのコンストラクタ。
 	 */
 	public Reader(){
 		Downloader download = new Downloader();
@@ -29,22 +29,22 @@ public class Reader extends IO
 		return;
 	}
 	
-	/*
-	 *ダウンロードしたCSVファイルを応答する。
+	/**
+	 * ダウンロードしたCSVファイルを応答する。
 	 */
 	public File filename(){
 		return filename;
 	}
 	
-	/*
-	 *ダウンロードしたCSVファイルのローカルなファイルを応答するクラスメソッド。
+	/**
+	 * ダウンロードしたCSVファイルのローカルなファイルを応答するクラスメソッド。
 	 */
 	public static File filenameOfCSV(){
 		return null;
 	}
 	
-	/*
-	 *ダウンロードしたCSVファイルを読み込んでテーブルを応答する。
+	/**
+	 * ダウンロードしたCSVファイルを読み込んでテーブルを応答する。
 	 */
 	public Table table(){
 		return null;

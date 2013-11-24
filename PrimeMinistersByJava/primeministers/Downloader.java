@@ -20,22 +20,21 @@ public class Downloader extends IO
 	 */
 	
 	/**
-	 *総理大臣の情報を記したCSVファイルの在処(URL文字列)を記憶するフィールド。
+	 * 総理大臣の情報を記したCSVファイルの在処(URL文字列)を記憶するフィールド。
 	 */
 	private String url;
 	
 	
-	/*
-	 *ダウンローダのコンストラクタ。
+	/**
+	 * ダウンローダのコンストラクタ。
 	 */
-	
 	public Downloader(){
 		this.url="http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/CSV2HTML/PrimeMinisters/PrimeMinisters.csv";
 		return;
 	}
 	
-	/*
-	 *総理大臣の情報を記しCSVファイルをダウンロードする。
+	/**
+	 * 総理大臣の情報を記しCSVファイルをダウンロードする。
 	 */
 	public void downloadCSV(){
 		URL csvURL;
@@ -68,53 +67,53 @@ public class Downloader extends IO
 	}
 	
 	
-	/*
-	 *総理大臣の画像群をダウンロードする。
+	/**
+	 * 総理大臣の画像群をダウンロードする。
 	 */
 	public void downloadImages(){
 		return;
 	}
 	
-	/*
-	 *総理大臣の画像群またはサムネイル画像群をダウンロードする。
+	/**
+	 * 総理大臣の画像群またはサムネイル画像群をダウンロードする。
 	 */
 	private void downloadPictures(int indexOfPicture){
 		return;
 	}
 	
-	/*
-	 *総理大臣の画像群をダウンロードする。
+	/**
+	 * 総理大臣の画像群をダウンロードする。
 	 */
 	public void downloadThumbnails(){
 		return;
 	}
 	
-	/*
-	 *総理大臣の情報を記したCSVファイルをダウンロードして、画像群やサムネイル画像群を
-	 *ダウンロードし、テーブルで応答する。
+	/**
+	 * 総理大臣の情報を記したCSVファイルをダウンロードして、画像群やサムネイル画像群を
+	 * ダウンロードし、テーブルで応答する。
 	 */
 	@Override
 	public Table table(){
 		return null;
 	}
 	
-	/*
-	 *総理大臣の情報を記したCSVファイルの在処(URL)を文字列で応答する。
+	/**
+	 * 総理大臣の情報を記したCSVファイルの在処(URL)を文字列で応答する。
 	 */
 	public String url(){
 		return this.url;
 	}
 	
-	/*
-	 *総理大臣の情報の在処(URL)を文字列で応答するクラスメソッド。
+	/**
+	 * 総理大臣の情報の在処(URL)を文字列で応答するクラスメソッド。
 	 */
 	public static String urlString(){
 		return "http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/CSV2HTML/PrimeMinisters/PrimeMinisters.csv";
 	}
 	
 	
-	/*
-	 *総理大臣の情報を記したCSVファイル在処(URL)を文字列で応答するクラスメソッド。
+	/**
+	 * 総理大臣の情報を記したCSVファイル在処(URL)を文字列で応答するクラスメソッド。
 	 */
 	public static String urlStringOfCSV(){
 		return "CSV/PrimeMinisters.csv";
