@@ -39,6 +39,9 @@ public class Table extends Object
 	 */
 	public Table()
 	{
+		this.images = new ArrayList<BufferedImage>();
+		this.thumbnails = new ArrayList<BufferedImage>();
+		this.tuples = new ArrayList<Tuple>();
 		return;
 	}
 	
