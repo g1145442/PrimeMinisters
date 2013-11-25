@@ -1,6 +1,7 @@
 package primeministers;
 
 import java.io.File;
+import java.util.ArrayList;
 
 /**
  * ダウンローダ：総理大臣のCSVファイル・画像ファイル・サムネイル画像ファイルをダウンロードする。
@@ -71,7 +72,11 @@ public class Downloader extends IO
 	@Override
 	public Table table()
 	{
+		Reader aReader = new Reader();
+		this.table = aReader.table();
 		
+		this.downloadImages();
+		this.downloadThumbnails();
 		
 		return this.table;
 	}
