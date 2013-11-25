@@ -26,133 +26,151 @@ public class Attributes extends Object
 	/**
 	 * 入力用("input")または出力用("output")で属性リストを作成するコンストラクタ。
 	 */
-	public Attributes(String aString){
-		return;
+	public Attributes(String aString)
+	{
 	}
 	
 	/**
 	 * 指定されたインデックスに対応する名前を応答する。名前がないときはキーを応答する。
 	 */
-	protected String at(int index){
+	protected String at(int index)
+	{
 		return null;
 	}
 	
 	/**
 	 * 指定されたキー文字列のインデックスを応答する。
 	 */
-	private int indexOf(String string){
+	private int indexOf(String string)
+	{
 		return 0;
 	}
 	
 	/**
 	 * 在位日数のインデックスを応答する。
 	 */
-	public int indexOfDays(){
+	public int indexOfDays()
+	{
 		return 0;
 	}
 	
 	/**
 	 * 画像のインデックスを応答する。
 	 */
-	public int indexOfImage(){
+	public int indexOfImage()
+	{
 		return 0;
 	}
 	
 	/**
 	 * ふりがなのインデックスを応答する。
 	 */
-	public int indexOfKana(){
+	public int indexOfKana()
+	{
 		return 0;
 	}
 	
 	/**
 	 * 氏名のインデックスを応答する。
 	 */
-	public int indexOfName(){
+	public int indexOfName()
+	{
 		return 0;
 	}
 	
 	/**
 	 * 番号のインデックスを応答する。
 	 */
-	public int indexOfNo(){
+	public int indexOfNo()
+	{
 		return 0;
 	}
 	
 	/**
 	 * 代のインデックスを応答する。
 	 */
-	public int indexOfOrder(){
+	public int indexOfOrder()
+	{
 		return 0;
 	}
 	
 	/**
 	 * 政党のインデックスを応答する。
 	 */
-	public int indexOfParty(){
+	public int indexOfParty()
+	{
 		return 0;
 	}
 	
 	/**
 	 * 在位期間のインデックスを応答する。
 	 */
-	public int indexOfPeriod(){
+	public int indexOfPeriod()
+	{
 		return 0;
 	}
 	
 	/**
 	 * 出身地のインデックスを応答する。
 	 */
-	public int indexOfPlace(){
+	public int indexOfPlace()
+	{
 		return 0;
 	}
 	
 	/**
 	 * 出身校のインデックスを応答する。
 	 */
-	public int indexOfSchool(){
+	public int indexOfSchool()
+	{
 		return 0;
 	}
 	
 	/**
 	 * 画像のインデックスを応答する。
 	 */
-	public int indexOfThumbnail(){
+	public int indexOfThumbnail()
+	{
 		return 0;
 	}
 	
 	/**
 	 * 指定されたインデックスに対応するキーを応答する。
 	 */
-	protected String keyAt(int index){
+	protected String keyAt(int index)
+	{
 		return null;
 	}
 	
 	/**
 	 * キー群を応答する。
 	 */
-	public ArrayList<String> keys(){
+	public ArrayList<String> keys()
+	{
 		return null;
 	}
 	
 	/**
 	 * 指定されたインデックスに対応する名前を応答する。
 	 */
-	protected String nameAt(int index){
+	protected String nameAt(int index)
+	{
 		return null;
 	}
 	
 	/**
 	 * 名前群を応答する。
 	 */
-	public ArrayList<String> names(){
+	public ArrayList<String> names()
+	{
 		return null;
 	}
 	
 	/**
 	 * 属性リストの長さを応答する。
 	 */
-	public int size(){
+	public int size()
+	{
 		return 0;
 	}
 	
@@ -160,7 +178,8 @@ public class Attributes extends Object
 	 * 自分自身を文字列にして、それを応答する。
 	 */
 	@Override
-	public String toString(){
+	public String toString()
+	{
 		return null;
 	}
 }

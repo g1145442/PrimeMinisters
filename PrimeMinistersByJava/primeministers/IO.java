@@ -181,7 +181,8 @@ public abstract class IO extends Object
 	/**
 	 * 指定された行リストを、指定されたファイルに書き出すクラスメソッド。
 	 */
-	public static void writeText(ArrayList<String> aCollection,File aFile){
+	public static void writeText(ArrayList<String> aCollection,File aFile)
+	{
 		try
 		{
 			FileOutputStream outputStream = new FileOutputStream(aFile);
