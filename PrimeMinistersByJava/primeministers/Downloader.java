@@ -94,7 +94,7 @@ public class Downloader extends IO
 	 */
 	@Override
 	public Table table(){
-		return null;
+		return this.table;
 	}
 	
 	/**
