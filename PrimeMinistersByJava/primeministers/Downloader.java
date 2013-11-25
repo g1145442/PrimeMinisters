@@ -1,12 +1,6 @@
 package primeministers;
 
-import java.net.URL;
-import java.net.URLConnection;
-import java.io.InputStream;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
 
 /**
  * ダウンローダ：総理大臣のCSVファイル・画像ファイル・サムネイル画像ファイルをダウンロードする。
@@ -35,7 +29,8 @@ public class Downloader extends IO
 	/**
 	 * 総理大臣の情報を記しCSVファイルをダウンロードする。
 	 */
-	public void downloadCSV(){
+	public void downloadCSV()
+	{
 		File aFile;
 		aFile = new File(this.url);
 		ArrayList<String> aCollection = IO.readTextFromFile(aFile);
@@ -48,21 +43,24 @@ public class Downloader extends IO
 	/**
 	 * 総理大臣の画像群をダウンロードする。
 	 */
-	public void downloadImages(){
+	public void downloadImages()
+	{
 		return;
 	}
 	
 	/**
 	 * 総理大臣の画像群またはサムネイル画像群をダウンロードする。
 	 */
-	private void downloadPictures(int indexOfPicture){
+	private void downloadPictures(int indexOfPicture)
+	{
 		return;
 	}
 	
 	/**
 	 * 総理大臣の画像群をダウンロードする。
 	 */
-	public void downloadThumbnails(){
+	public void downloadThumbnails()
+	{
 		return;
 	}
 	
@@ -71,7 +69,8 @@ public class Downloader extends IO
 	 * ダウンロードし、テーブルで応答する。
 	 */
 	@Override
-	public Table table(){
+	public Table table()
+	{
 		
 		
 		return this.table;
