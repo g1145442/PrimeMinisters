@@ -66,7 +66,8 @@ public class Translator extends Object
 	 * それを応答する。
 	 */
 	public Table table(Table aTable){
-		return null;
+		//this.outputTable = aTuple;
+		return this.outputTable;
 	}
 	
 }

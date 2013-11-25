@@ -13,6 +13,9 @@ class Downloader(io.IO):
 
 	def __init__(self, base_directory):
 		"""ダウンローダのコンストラクタ。"""
+		self.base_directory = base_directory
+		self.url = 'http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/CSV2HTML/PrimeMinisters'
+		self.filename_of_csv = 'PrimeMinister.csv'
 		return
 
 	def download_all(self):
@@ -22,19 +25,21 @@ class Downloader(io.IO):
 
 	def download_csv(self):
 		"""総理大臣の情報を記したCSVファイルをダウンロードする。"""
-		
 		try: 
-			with open('PrimeMinister.csv','w') as local_file:
-				try: 
-					a_file = urllib.urlopen('http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/CSV2HTML/PrimeMinisters/PrimeMinisters.csv')
-				except URLError, an_exception: 
-					print an_exception.reason
-				shutil.copyfileobj(a_file,local_file)
-				a_file.close()
-		except IOError, an_exception: print an_exception.reason
-		
+			a_filename = urllib.urlopen(self.url + '/' + self.filename_of_csv)
+		except URLError, an_exception:  
+			print an_exception.reason
+		try: 
+			with open(self.base_directory + '/' + self.filename_of_csv ,'w') as local_file:
+					shutil.copyfileobj(a_filename, local_file)
+		except IOError, an_exception:
+			print an_exception.reason
+		a_filename.close()
 		return None
 
 	def download_images(self, image_filenames):
 		"""画像ファイル群または縮小画像ファイル群をダウンロードする。"""
+# 		http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/CSV2HTML/PrimeMinisters/images/039.jpg
+		a_reader = reader.Reader(self.filename_of_csv)
+		
 		return
