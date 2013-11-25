@@ -13,40 +13,40 @@ public class Reader extends IO
 	 * まず、次のページを参照しながら、スケルトン（スタブ）を作ることから始めましょう。
 	 * http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/CSV2HTML/PrimeMinistersJavaDoc/index.html
 	 */
-
-        /*
-         *総理大臣の情報を記したCSVファイルを記憶するフィールド。
-         */
-        private File filename;
-
-        /*
-         *リーダのコンストラクタ。
-         */
-        public Reader(){
-                Downloader download = new Downloader();
-                download.downloadCSV();
-                this.filename = new File("CSV/PrimeMinisters.csv");
-                return;
-        }
-
-        /*
-         *ダウンロードしたCSVファイルを応答する。
-         */
-        public File filename(){
-            return filename;
-        }
-
-        /*
-         *ダウンロードしたCSVファイルのローカルなファイルを応答するクラスメソッド。
-         */
-        public static File filenameOfCSV(){
-                return null;
-        }
-
-        /*
-         *ダウンロードしたCSVファイルを読み込んでテーブルを応答する。
-         */
-        public Table table(){
-                return null;
-        }
+	
+	/**
+	 * 総理大臣の情報を記したCSVファイルを記憶するフィールド。
+	 */
+	private File filename;
+	
+	/**
+	 * リーダのコンストラクタ。
+	 */
+	public Reader(){
+		Downloader download = new Downloader();
+		download.downloadCSV();
+		this.filename = new File("CSV/PrimeMinisters.csv");
+		return;
+	}
+	
+	/**
+	 * ダウンロードしたCSVファイルを応答する。
+	 */
+	public File filename(){
+		return filename;
+	}
+	
+	/**
+	 * ダウンロードしたCSVファイルのローカルなファイルを応答するクラスメソッド。
+	 */
+	public static File filenameOfCSV(){
+		return null;
+	}
+	
+	/**
+	 * ダウンロードしたCSVファイルを読み込んでテーブルを応答する。
+	 */
+	public Table table(){
+		return null;
+	}
 }

@@ -12,10 +12,10 @@ public class Example extends Object
 	{
 		// トランスレータのインスタンスを生成する。
 		Translator aTranslator = new Translator();
-
+		
 		// トランスレータに総理大臣のCSVファイルをHTMLページへ変換するように依頼する。
 		aTranslator.perform();
-
+		
 		return;
 	}
 }

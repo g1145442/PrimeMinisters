@@ -13,75 +13,75 @@ public class Writer extends IO
 	 * まず、次のページを参照しながら、スケルトン（スタブ）を作ることから始めましょう。
 	 * http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/CSV2HTML/PrimeMinistersJavaDoc/index.html
 	 */
-        
-        /*
-         *ライタのコンストラクタ。
-         */
-        public Writer(){
-                return;
-        }
-
-        /*
-         *属性リストを応答する。
-         */
-        public Attributes attributes(){
-                return null; 
-        }
-
-        /*
-         *ローカルなHTMLのインデックスファイル(index.html)を応答するクラスメソッド。
-         */
-        public File filenameOfHTML(){
-                return null;
-        }
-
-        /*
-         *HTMLページを基にするテーブルを受け取って、インデックスファイル(index.html)に書き出す。
-         */
-        public Table table(Table aTable){
-                return null;
-        }
-
-        /*
-         *タプル群を応答する。
-         */
-        public ArrayList<Tuple> tuples(){
-                return null;
-        }
-        
-        /*
-         *属性リストを書き出す
-         */
-        public void writeAttributesOn(BufferedWriter outputWriter){
-                return;
-        }
-        
-        /*
-         *フッタを書き出す。
-         */
-        public void writeFooterOn(BufferedWriter outputWriter){
-                return;
-        }
-
-        /*
-         *ヘッダを書き出す。
-         */
-        public void writeHeaderOn(BufferedWriter outputWriter){
-                return;
-        }
-
-        /*
-         *ボディを書き出す。
-         */
-        public void writeTableBodyOn(BufferedWriter outputWriter){
-                return;
-        }
-
-        /*
-         *タプルを書き出す。
-         */
-
-        public void writeTuplesOn(BufferedWriter outputWriter){
-                return;
-        }
+	
+	/**
+	 * ライタのコンストラクタ。
+	 */
+	public Writer(){
+		return;
+	}
+	
+	/**
+	 * 属性リストを応答する。
+	 */
+	public Attributes attributes(){
+		return null;
+	}
+	
+	/**
+	 * ローカルなHTMLのインデックスファイル(index.html)を応答するクラスメソッド。
+	 */
+	public File filenameOfHTML(){
+		return null;
+	}
+	
+	/**
+	 * HTMLページを基にするテーブルを受け取って、インデックスファイル(index.html)に書き出す。
+	 */
+	public Table table(Table aTable){
+		return null;
+	}
+	
+	/**
+	 * タプル群を応答する。
+	 */
+	public ArrayList<Tuple> tuples(){
+		return null;
+	}
+	
+	/**
+	 * 属性リストを書き出す
+	 */
+	public void writeAttributesOn(BufferedWriter outputWriter){
+		return;
+	}
+	
+	/**
+	 * フッタを書き出す。
+	 */
+	public void writeFooterOn(BufferedWriter outputWriter){
+		return;
+	}
+	
+	/**
+	 * ヘッダを書き出す。
+	 */
+	public void writeHeaderOn(BufferedWriter outputWriter){
+		return;
+	}
+	
+	/**
+	 * ボディを書き出す。
+	 */
+	public void writeTableBodyOn(BufferedWriter outputWriter){
+		return;
+	}
+	
+	/**
+	 * タプルを書き出す。
+	 */
+	
+	public void writeTuplesOn(BufferedWriter outputWriter){
+		return;
+	}
 }
