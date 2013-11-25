@@ -62,6 +62,7 @@ public class Downloader extends IO
 	 */
 	public void downloadThumbnails()
 	{
+		//javax.imageIO を使う？
 		return;
 	}
 	
