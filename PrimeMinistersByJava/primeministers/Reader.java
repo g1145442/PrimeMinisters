@@ -25,7 +25,7 @@ public class Reader extends IO
 	public Reader(){
 		Downloader download = new Downloader();
 		download.downloadCSV();
-		this.filename = new File("CSV/PrimeMinisters.csv");
+		this.filename = new File("PrimeMinisters.csv");
 		return;
 	}
 	
