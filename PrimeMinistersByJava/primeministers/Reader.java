@@ -40,7 +40,7 @@ public class Reader extends IO
 	 * ダウンロードしたCSVファイルのローカルなファイルを応答するクラスメソッド。
 	 */
 	public static File filenameOfCSV(){
-		return null;
+		return this.filename;
 	}
 	
 	/**
