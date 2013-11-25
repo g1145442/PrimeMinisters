@@ -39,6 +39,7 @@ public class Writer extends IO
 	 * HTMLページを基にするテーブルを受け取って、インデックスファイル(index.html)に書き出す。
 	 */
 	public Table table(Table aTable){
+		//下のメソッド郡を使用するよー
 		return null;
 	}
 	

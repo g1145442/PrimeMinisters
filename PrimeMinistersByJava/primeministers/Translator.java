@@ -23,10 +23,9 @@ public class Translator extends Object
 	 */
 	public Translator()
 	{
-		
 		super();
-		Downloader download = new Downloader();
-		download.downloadCSV();
+		this.inputTable = new Table();
+		this.outputTable = new Table();
 		return;
 	}
 	
@@ -40,6 +39,17 @@ public class Translator extends Object
 		 * まず、次のページを参照しながら、スケルトン（スタブ）を作ることから始めましょう。
 		 * http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/CSV2HTML/PrimeMinistersJavaDoc/index.html
 		 */
+		
+		Downloader aDownload = new Downloader();
+		aDownload.downloadCSV();
+		
+		this.inputTable = aDownload.table();
+		
+		Table aTable = this.table(this.inputTable);
+		
+		Writer aWriter = new Writer();
+		aWriter.table(aTable);
+		
 		String aString = "総理大臣のCSVファイルからHTMLページへの変換を無事に完了しました。\n";
 		JOptionPane.showMessageDialog(null, aString, "報告", JOptionPane.PLAIN_MESSAGE);
 		return;
@@ -66,7 +76,8 @@ public class Translator extends Object
 	 * それを応答する。
 	 */
 	public Table table(Table aTable){
-		//this.outputTable = aTuple;
+		//処理内容
+		//ここに書く... compute系はここで呼ぶ
 		return this.outputTable;
 	}
 	
