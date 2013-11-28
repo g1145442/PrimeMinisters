@@ -28,6 +28,38 @@ public class Attributes extends Object
 	 */
 	public Attributes(String aString)
 	{
+		if(aString == "input")
+		{
+			//input処理
+			String[] aCollection = new String[]
+			{
+				"no", "order", "names", "kana", "period","school",
+				"party", "birth", "image", "thumbnail"
+			};
+			
+			for(String each : aCollection){
+				this.keys.add(each);
+			}
+			
+		}
+		else if(aString == "output")
+		{
+			//output処理
+			String[] aCollection = new String[]
+			{
+				"no", "order", "names", "kana", "period","day", "school",
+				"party", "birth", "image"
+			};
+			
+			for(String each : aCollection){
+				this.keys.add(each);
+			}
+
+		}
+		else
+		{
+			//エラーやよ
+		}
 	}
 	
 	/**
@@ -35,6 +67,7 @@ public class Attributes extends Object
 	 */
 	protected String at(int index)
 	{
+		if()
 		return null;
 	}
 	
@@ -147,7 +180,7 @@ public class Attributes extends Object
 	 */
 	public ArrayList<String> keys()
 	{
-		return null;
+		return this.keys;
 	}
 	
 	/**
@@ -155,7 +188,7 @@ public class Attributes extends Object
 	 */
 	protected String nameAt(int index)
 	{
-		return null;
+		return this.names.get(index);
 	}
 	
 	/**
@@ -164,6 +197,14 @@ public class Attributes extends Object
 	public ArrayList<String> names()
 	{
 		return null;
+	}
+	
+	/**
+	 *	名前群を設定する。
+	 */
+	public void names(ArrayList<String> aCollection)
+	{
+		this.names = aCollection;
 	}
 	
 	/**
