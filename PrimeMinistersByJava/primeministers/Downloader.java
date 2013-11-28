@@ -2,6 +2,8 @@ package primeministers;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.net.URL;
+
 
 /**
  * ダウンローダ：総理大臣のCSVファイル・画像ファイル・サムネイル画像ファイルをダウンロードする。
@@ -33,13 +35,11 @@ public class Downloader extends IO
 	public void downloadCSV()
 	{
 		File aFile;
-		aFile = new File(this.url);
-		ArrayList<String> aCollection = IO.readTextFromFile(aFile);
+		ArrayList<String> aCollection = IO.readTextFromURL(this.url);
 		aFile = new File("PrimeMinisters.csv");
 		IO.writeText(aCollection, aFile);
 		return;
 	}
-	
 	
 	/**
 	 * 総理大臣の画像群をダウンロードする。
