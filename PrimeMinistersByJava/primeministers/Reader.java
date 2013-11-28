@@ -22,9 +22,8 @@ public class Reader extends IO
 	/**
 	 * リーダのコンストラクタ。
 	 */
-	public Reader(){
-		Downloader download = new Downloader();
-		download.downloadCSV();
+	public Reader()
+	{
 		this.filename = new File("PrimeMinisters.csv");
 		return;
 	}
@@ -32,21 +31,24 @@ public class Reader extends IO
 	/**
 	 * ダウンロードしたCSVファイルを応答する。
 	 */
-	public File filename(){
-		return filename;
+	public File filename()
+	{
+		return this.filename;
 	}
 	
 	/**
 	 * ダウンロードしたCSVファイルのローカルなファイルを応答するクラスメソッド。
 	 */
-	public static File filenameOfCSV(){
+	public static File filenameOfCSV()
+	{
 		return this.filename;
 	}
 	
 	/**
 	 * ダウンロードしたCSVファイルを読み込んでテーブルを応答する。
 	 */
-	public Table table(){
-		return null;
+	public Table table()
+	{
+		return this.table;
 	}
 }
