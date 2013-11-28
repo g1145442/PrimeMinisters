@@ -51,7 +51,6 @@ public class Reader extends IO
 	 * ダウンロードしたCSVファイルを読み込んでテーブルを応答する。
 	 */
 	public Table table(){
-		
 		try {
 			
 			BufferedReader br = new BufferedReader(new FileReader(this.filename));

@@ -65,7 +65,6 @@ public abstract class IO extends Object
 	public static ArrayList<String> readTextFromFile(File aFile)
 	{
 		ArrayList<String> aCollection = new ArrayList<String>();
-		
 		try
 		{
 			FileInputStream inputStream = new FileInputStream(aFile);
@@ -83,7 +82,6 @@ public abstract class IO extends Object
 		catch (FileNotFoundException anException) { anException.printStackTrace(); }
 		catch (UnsupportedEncodingException anException) { anException.printStackTrace(); }
 		catch (IOException anException) { anException.printStackTrace(); }
-		
 		return aCollection;
 	}
 	
