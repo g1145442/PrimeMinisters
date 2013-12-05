@@ -58,7 +58,7 @@ public class Attributes extends Object
 		}
 		else
 		{
-			//エラーやよ
+			System.err.println("Attributes: 想定外の値");
 		}
 	}
 	
@@ -67,7 +67,6 @@ public class Attributes extends Object
 	 */
 	protected String at(int index)
 	{
-		if()
 		return null;
 	}
 	
