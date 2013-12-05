@@ -1,5 +1,6 @@
 package primeministers;
 
+import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -50,6 +51,20 @@ public class Reader extends IO
 	/**
 	 * ダウンロードしたCSVファイルを読み込んでテーブルを応答する。
 	 */
+<<<<<<< HEAD
+	public Table table()
+	{
+		
+		boolean first = true;
+		
+		ArrayList<String> aCollection = IO.readTextFromFile(this.filename);
+		Table inputTable = new Table();
+		inputTable.attributes(new Attributes("input"));
+		
+		for (String str : aCollection){
+			ArrayList<String> aRaw = IO.splitString(str, ",");
+			if(first){first = false;}
+=======
 	public Table table(){
 		try {
 			
@@ -69,14 +84,14 @@ public class Reader extends IO
 				System.out.println();
 			}
 			br.close();
+>>>>>>> 026c33101b3a9618485e8d2c3e33fcbfa899b236
 			
-		} catch (FileNotFoundException fileNotFoundException) {
-			// Fileオブジェクト生成時の例外捕捉
-			fileNotFoundException.printStackTrace();
-		} catch (IOException iOException) {
-			// BufferedReaderオブジェクトのクローズ時の例外捕捉
-			iOException.printStackTrace();
 		}
+<<<<<<< HEAD
+
+		
+=======
+>>>>>>> 026c33101b3a9618485e8d2c3e33fcbfa899b236
 		return null;
 	}
 }

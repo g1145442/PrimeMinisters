@@ -24,30 +24,37 @@ public class Tuple extends Object
 	private ArrayList<String> values;
 	
 	/**
-	 * 属性リスト値リストからタプルを作るコンストラクタ。
+	 * 属性リスト値リストからタプルを作るコンストラクタ。 ( 12/5 良好 )
 	 */
-	public Tuple(Attributes instanceOfAttributes,ArrayList<String> valueCollection) {
+	public Tuple(Attributes instanceOfAttributes,ArrayList<String> valueCollection)
+	{
+		this.attributes = instanceOfAttributes;
+		this.value = valueCollection;
 		return;
 	}
 	
 	/**
-	 * 属性リストを応答する。
+	 * 属性リストを応答する。 ( 12/5 良好 )
 	 */
 	public Attributes attributes(){
-		return null;
+		return this.attributes;
 	}
 	
 	/**
 	 * 自分自身を文字列にして、それを応答する。
 	 */
-	public String toString(){
-		return null;
+	public String toString()
+	{
+		StringBuffer aBuffer = new StringBuffer();
+		Class aClass = this.getClass();
+		aBuffer.append(aClass.getName());
+		return aBuffer.toString();
 	}
 	
 	/*
 	 * 値リストを応答する。
 	 */
 	public ArrayList<String> values(){
-		return null;
+		return this.values;
 	}
 }
