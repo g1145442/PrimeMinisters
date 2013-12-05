@@ -45,7 +45,7 @@ public class Reader extends IO
 	 * ダウンロードしたCSVファイルのローカルなファイルを応答するクラスメソッド。
 	 */
 	public static File filenameOfCSV(){
-		return null;
+		return filename.getAbsoluteFile;
 	}
 	
 	/**
@@ -55,16 +55,21 @@ public class Reader extends IO
 	{
 		
 		boolean first = true;
-		
 		ArrayList<String> aCollection = IO.readTextFromFile(this.filename);
+		
 		Table inputTable = new Table();
-		inputTable.attributes(new Attributes("input"));
+		//inputTable.attributes(new Attributes("input"));
 		
 		for (String str : aCollection){
 			ArrayList<String> aRaw = IO.splitString(str, ",");
-			if(first){first = false;}
-			
+			if(first){
+				inputTable.attributes(new Attributes("input"));
+				first = false;
+			}else{
+				Tuple inputTuple = new Tuple(inputTable.attributes(), IO.splitString(aRaw, ","));
+				inputTable.add(inputTuple);
+			}
 		}
-		return null;
+		return inputTable;
 	}
 }
