@@ -40,7 +40,6 @@ public class Attributes extends Object
 			for(String each : aCollection){
 				this.keys.add(each);
 			}
-			
 		}
 		else if(aString == "output")
 		{
@@ -54,7 +53,6 @@ public class Attributes extends Object
 			for(String each : aCollection){
 				this.keys.add(each);
 			}
-
 		}
 		else
 		{
@@ -67,7 +65,7 @@ public class Attributes extends Object
 	 */
 	protected String at(int index)
 	{
-		return null;
+		return this.names.get(index);
 	}
 	
 	/**
@@ -75,7 +73,7 @@ public class Attributes extends Object
 	 */
 	private int indexOf(String string)
 	{
-		return 0;
+		return this.names.indexOf(aString);
 	}
 	
 	/**
@@ -83,7 +81,7 @@ public class Attributes extends Object
 	 */
 	public int indexOfDays()
 	{
-		return 0;
+		return this.indexOf("在位日数");
 	}
 	
 	/**
@@ -91,7 +89,7 @@ public class Attributes extends Object
 	 */
 	public int indexOfImage()
 	{
-		return 0;
+		return this.indexOf("画像");
 	}
 	
 	/**
@@ -99,7 +97,7 @@ public class Attributes extends Object
 	 */
 	public int indexOfKana()
 	{
-		return 0;
+		return this.indexOf("ふりがな");
 	}
 	
 	/**
@@ -107,7 +105,7 @@ public class Attributes extends Object
 	 */
 	public int indexOfName()
 	{
-		return 0;
+		return this.indexOf("氏名");
 	}
 	
 	/**
@@ -115,7 +113,7 @@ public class Attributes extends Object
 	 */
 	public int indexOfNo()
 	{
-		return 0;
+		return this.indexOf("人目");
 	}
 	
 	/**
@@ -123,7 +121,7 @@ public class Attributes extends Object
 	 */
 	public int indexOfOrder()
 	{
-		return 0;
+		return this.indexOf("代");
 	}
 	
 	/**
@@ -131,7 +129,7 @@ public class Attributes extends Object
 	 */
 	public int indexOfParty()
 	{
-		return 0;
+		return this.indexOf("政党");
 	}
 	
 	/**
@@ -139,7 +137,7 @@ public class Attributes extends Object
 	 */
 	public int indexOfPeriod()
 	{
-		return 0;
+		return this.indexOf("在位期間");
 	}
 	
 	/**
@@ -147,7 +145,7 @@ public class Attributes extends Object
 	 */
 	public int indexOfPlace()
 	{
-		return 0;
+		return this.indexOf("出身地");
 	}
 	
 	/**
@@ -155,7 +153,7 @@ public class Attributes extends Object
 	 */
 	public int indexOfSchool()
 	{
-		return 0;
+		return this.indexOf("出身校");
 	}
 	
 	/**
@@ -163,7 +161,7 @@ public class Attributes extends Object
 	 */
 	public int indexOfThumbnail()
 	{
-		return 0;
+		return this.indexOf("縮小画像");
 	}
 	
 	/**
@@ -171,7 +169,7 @@ public class Attributes extends Object
 	 */
 	protected String keyAt(int index)
 	{
-		return null;
+		return names.get(index);
 	}
 	
 	/**
@@ -225,7 +223,7 @@ public class Attributes extends Object
 		aBuffer.append(aClass.getName());
 		aBuffer.append("[keys=");
 		aBuffer.append(keys);
-		aBuffer.append(",offset=");
+		aBuffer.append(",names=");
 		aBuffer.append(names);
 		aBuffer.append("]");
 		return aBuffer.toString();
