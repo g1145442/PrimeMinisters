@@ -51,7 +51,6 @@ public class Reader extends IO
 	/**
 	 * ダウンロードしたCSVファイルを読み込んでテーブルを応答する。
 	 */
-<<<<<<< HEAD
 	public Table table()
 	{
 		
@@ -64,34 +63,8 @@ public class Reader extends IO
 		for (String str : aCollection){
 			ArrayList<String> aRaw = IO.splitString(str, ",");
 			if(first){first = false;}
-=======
-	public Table table(){
-		try {
-			
-			BufferedReader br = new BufferedReader(new FileReader(this.filename));
-			
-			// 最終行まで読み込む
-			String line = "";
-			while ((line = br.readLine()) != null) {
-				
-				// 1行をデータの要素に分割
-				StringTokenizer token = new StringTokenizer(line, ",");
-				
-				while (token.hasMoreTokens()) {
-					// 1行の各要素をタブ区切りで表示
-					System.out.print(token.nextToken() + "\t");
-				}
-				System.out.println();
-			}
-			br.close();
->>>>>>> 026c33101b3a9618485e8d2c3e33fcbfa899b236
 			
 		}
-<<<<<<< HEAD
-
-		
-=======
->>>>>>> 026c33101b3a9618485e8d2c3e33fcbfa899b236
 		return null;
 	}
 }
