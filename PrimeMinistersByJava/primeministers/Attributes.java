@@ -155,7 +155,7 @@ public class Attributes extends Object
 	 */
 	protected String nameAt(int index)
 	{
-		return null;
+		return names.get(index);
 	}
 	
 	/**
@@ -163,7 +163,7 @@ public class Attributes extends Object
 	 */
 	public ArrayList<String> names()
 	{
-		return null;
+		return names;
 	}
 	
 	/**
@@ -171,7 +171,7 @@ public class Attributes extends Object
 	 */
 	public int size()
 	{
-		return 0;
+		return keys.size();
 	}
 	
 	/**
@@ -180,6 +180,14 @@ public class Attributes extends Object
 	@Override
 	public String toString()
 	{
-		return null;
+		StringBuffer aBuffer = new StringBuffer();
+		Class aClass = this.getClass();
+		aBuffer.append(aClass.getName());
+		aBuffer.append("[keys=");
+		aBuffer.append(keys);
+		aBuffer.append(",offset=");
+		aBuffer.append(names);
+		aBuffer.append("]");
+		return aBuffer.toString();
 	}
 }
