@@ -71,7 +71,7 @@ public class Attributes extends Object
 	/**
 	 * 指定されたキー文字列のインデックスを応答する。
 	 */
-	private int indexOf(String string)
+	private int indexOf(String aString)
 	{
 		return this.names.indexOf(aString);
 	}
