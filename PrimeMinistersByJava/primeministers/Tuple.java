@@ -29,7 +29,7 @@ public class Tuple extends Object
 	public Tuple(Attributes instanceOfAttributes,ArrayList<String> valueCollection)
 	{
 		this.attributes = instanceOfAttributes;
-		this.value = valueCollection;
+		this.values = valueCollection;
 		return;
 	}
 	
