@@ -25,14 +25,14 @@ public class Writer extends IO
 	 * 属性リストを応答する。
 	 */
 	public Attributes attributes(){
-		return super.table.attributes();
+		return ;
 	}
 	
 	/**
 	 * ローカルなHTMLのインデックスファイル(index.html)を応答するクラスメソッド。
 	 */
 	public File filenameOfHTML(){
-		return new File(directoryOfPages().toString()+"/index.html");
+		return ;
 	}
 	
 	/**
@@ -40,41 +40,19 @@ public class Writer extends IO
 	 */
 	public Table table(Table aTable){
 		//下のメソッド郡を使用するよー
-		super.table = aTable;
-		try {
-			BufferedWriter outputWriter = new BufferedWriter(new FileWriter().filenameOfHTML()));
-			writeHeaderOn(outputWriter);
-			writeTableBodyOn(outputWriter);
-			writeFooterOn(outputWriter);
-			outputWriter.close();
-		}
-		catch (IOException e) {
-			e.printStackTrace();
-		}
-		return super.table;
 	}
 	
 	/**
 	 * タプル群を応答する。
 	 */
 	public ArrayList<Tuple> tuples(){
-		return super.table.tuples();
+		return ;
 	}
 	
 	/**
 	 * 属性リストを書き出す
 	 */
 	public void writeAttributesOn(BufferedWriter outputWriter){
-		try {
-			outputWriter.write("\t\t\t\t\t\t<tr>\n");
-			Iterator<String> ite = this.attribute().name().iterator();
-			while (ite.hasNext()) {
-				outputWriter.write()
-			}
-		}catch (<#exception#>) {
-			<#handler#>
-		}
-	}
 		return;
 	}
 	
