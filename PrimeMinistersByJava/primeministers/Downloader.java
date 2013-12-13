@@ -107,19 +107,6 @@ public class Downloader extends IO
 	 */
 	private void downloadPictures(int indexOfPicture)
 	{
-		/*
-		 BufferedImage readImage;
-		 BufferedImage readThumbnail;
-		 try
-		 {
-		 readImage = ImageIO.read(new URL(this.urlString()+"images/0"+Integer.toString(indexOfPicture)+".jpg"));
-		 readThumbnail = ImageIO.read(new URL(this.urlString()+"thumbnails/0"+Integer.toString(indexOfPicture)+".jpg"));
-		 }
-		 catch (Exception anException)
-		 {
-		 anException.printStackTrace();
-		 }
-		 */
 		return;
 	}
 	
