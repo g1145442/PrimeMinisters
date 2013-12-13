@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.MalformedURLException;
 
 /**
  * ダウンローダ：総理大臣のCSVファイル・画像ファイル・サムネイル画像ファイルをダウンロードする。
@@ -52,42 +54,49 @@ public class Downloader extends IO
 	 */
 	public void downloadImages()
 	{
-		ArrayList<BufferedImage> images =this.table.images();
-		boolean result = false;	
-
+		ArrayList<BufferedImage> images = this.table.images();
 		File aFile = new File(IO.directoryOfPages(),"images");
 		if(aFile.exists() == false)
 		{
 			aFile.mkdir();
 		}
-
-
-		for(Tuple aTuple :this.table().tuples()){
-			try{
-				int index = aTuple.attributes().indexOfImage();
-				String str = (aTuple.values().get(index));
-
-				System.out.println(this.urlString()+aTuple.values().get(index));
-				BufferedImage image = ImageIO.read(new URL(this.urlString()+aTuple.values().get(index))); 
-				images.add(image);
-			
-				try {
-					System.out.println("あ:"+str);
-					result = ImageIO.write(image, "jpeg", new File(IO.directoryOfPages(),str));
-				} catch (Exception e) {
-					e.printStackTrace();
-					result = false;
-				}
-
-			
+		
+		int index = 0;
+		String aString = null;
+		URL aURL = null;
+		BufferedImage anImage = null;
+		for(Tuple aTuple : this.table().tuples())
+		{
+			index = aTuple.attributes().indexOfImage();
+			aString = (aTuple.values().get(index));
+			try
+			{
+				aURL = new URL(this.urlString()+aTuple.values().get(index));
 			}
-			catch (Exception anException)
+			catch (MalformedURLException anException)
 			{
 				anException.printStackTrace();
-				System.out.println("しっぱい");
-
-			}	
-
+			}
+			
+			try
+			{
+				anImage = ImageIO.read(aURL);
+				System.out.println(this.urlString()+aTuple.values().get(index));
+			}
+			catch (IOException anException)
+			{
+				anException.printStackTrace();
+			}
+			images.add(anImage);
+			
+			try
+			{
+				ImageIO.write(anImage, "jpeg", new File(IO.directoryOfPages(),aString));
+			}
+			catch (IOException anException)
+			{
+				anException.printStackTrace();
+			}
 		}
 		return;
 	}
@@ -99,18 +108,18 @@ public class Downloader extends IO
 	private void downloadPictures(int indexOfPicture)
 	{
 		/*
-		BufferedImage readImage;
-		BufferedImage readThumbnail;
-		try
-		{
-			readImage = ImageIO.read(new URL(this.urlString()+"images/0"+Integer.toString(indexOfPicture)+".jpg"));
-			readThumbnail = ImageIO.read(new URL(this.urlString()+"thumbnails/0"+Integer.toString(indexOfPicture)+".jpg"));
-		}
-		catch (Exception anException)
-		{
-			anException.printStackTrace();
-		}
-		*/
+		 BufferedImage readImage;
+		 BufferedImage readThumbnail;
+		 try
+		 {
+		 readImage = ImageIO.read(new URL(this.urlString()+"images/0"+Integer.toString(indexOfPicture)+".jpg"));
+		 readThumbnail = ImageIO.read(new URL(this.urlString()+"thumbnails/0"+Integer.toString(indexOfPicture)+".jpg"));
+		 }
+		 catch (Exception anException)
+		 {
+		 anException.printStackTrace();
+		 }
+		 */
 		return;
 	}
 	
@@ -120,39 +129,50 @@ public class Downloader extends IO
 	 */
 	public void downloadThumbnails()
 	{
-		ArrayList<BufferedImage> thumbnails =this.table.thumbnails();
-		boolean result = false;	
+		ArrayList<BufferedImage> thumbnails = this.table.thumbnails();
 		File aFile = new File(IO.directoryOfPages(),"thumbnails");
-			if(aFile.exists() == false)
+		if(aFile.exists() == false)
+		{
+			aFile.mkdir();
+		}
+		
+		int index = 0;
+		String aString = null;
+		URL aURL = null;
+		BufferedImage anImage = null;
+		for(Tuple aTuple : this.table().tuples())
+		{
+			index = aTuple.attributes().indexOfThumbnail();
+			aString = (aTuple.values().get(index));
+			try
 			{
-				aFile.mkdir();
+				aURL = new URL(this.urlString()+aTuple.values().get(index));
 			}
-
-		for(Tuple aTuple :this.table().tuples()){
-			try{
-				int index = aTuple.attributes().indexOfThumbnail();
-				String str = (aTuple.values().get(index));
-
-				System.out.println(this.urlString()+aTuple.values().get(index));
-				BufferedImage image = ImageIO.read(new URL(this.urlString()+aTuple.values().get(index)));
-				thumbnails.add(image);
-				
-				try {
-					System.out.println("あ:"+str);
-					result = ImageIO.write(image, "jpeg", new File(IO.directoryOfPages(),str));
-				} catch (Exception e) {
-					e.printStackTrace();
-					result = false;
-				}
-			
-			}
-			catch (Exception anException)
+			catch (MalformedURLException anException)
 			{
 				anException.printStackTrace();
-				System.out.println("しっぱい");
-
 			}
-		}	
+			
+			try
+			{
+				anImage = ImageIO.read(aURL);
+				System.out.println(this.urlString()+aTuple.values().get(index));
+			}
+			catch (IOException anException)
+			{
+				anException.printStackTrace();
+			}
+			thumbnails.add(anImage);
+			
+			try
+			{
+				ImageIO.write(anImage, "jpeg", new File(IO.directoryOfPages(),aString));
+			}
+			catch (IOException anException)
+			{
+				anException.printStackTrace();
+			}
+		}
 		return;
 	}
 	
@@ -166,9 +186,9 @@ public class Downloader extends IO
 	{
 		Reader aReader = new Reader();
 		this.table = aReader.table();
-		
 		//this.downloadImages();
 		//this.downloadThumbnails();
+		
 		return this.table;
 	}
 	

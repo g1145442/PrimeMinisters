@@ -39,12 +39,6 @@ public class Translator extends Object
 		super();
 		this.inputTable = new Table();
 		this.outputTable = new Table();
-		/*
-		String days = this.computeNumberOfDays("1964年11月9日〜1972年7月7日");
-		System.out.println("---- DUBUG = "+days+"---------");
-		String days2 = this.computeNumberOfDays("2012年12月26日〜");
-		System.out.println("---- DUBUG = "+days2+"---------");
-		 */
 		
 		return;
 	}
@@ -58,12 +52,8 @@ public class Translator extends Object
 		Downloader aDownload = new Downloader();
 		aDownload.downloadCSV();
 		this.inputTable = aDownload.table();
-		
 		aDownload.downloadImages();
 		aDownload.downloadThumbnails();
-
-		/* テーブルの確認用デバッガーもどき */
-		//this.debugTable(); //後で消す
 		
 		Table aTable = this.table(this.inputTable);
 		
@@ -71,29 +61,7 @@ public class Translator extends Object
 		aWriter.table(aTable);
 		String aString = "総理大臣のCSVファイルからHTMLページへの変換を無事に完了しました。\n";
 		JOptionPane.showMessageDialog(null, aString, "報告", JOptionPane.PLAIN_MESSAGE);
-		
 		return;
-	}
-	
-	/**
-	 * テープルの状態を確認するデバック用メソッド
-	 * 後で消してね----------------------------!!
-	 */
-	private void debugTable()
-	{
-		for (String str : this.inputTable.attributes().keys())
-		{
-			System.out.print(str + " ");
-		}
-		
-		for (Tuple aTuple : this.inputTable.tuples())
-		{
-			for (String aString : aTuple.values())
-			{
-				System.out.print(aString + " ");
-			}
-			System.out.println();
-		}
 	}
 	
 	/**
@@ -103,7 +71,6 @@ public class Translator extends Object
 	public String computeNumberOfDays(String periodString)
 	{
 		ArrayList<String> aStringArray = IO.splitString(periodString,"〜年月日");
-		//From [0]年 [1]月 [2]日 : To [3]年 [4]月 [5]日
 		
 		int yearFrom, monthFrom, dayFrom;
 		int yearTo, monthTo, dayTo;
@@ -167,7 +134,6 @@ public class Translator extends Object
 	 */
 	public Table table(Table aTable)
 	{
-
 		Table htmlTable = new Table();
 		htmlTable.attributes(new Attributes("output"));
 		

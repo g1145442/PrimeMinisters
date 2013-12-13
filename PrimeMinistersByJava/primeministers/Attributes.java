@@ -65,6 +65,11 @@ public class Attributes extends Object
 		{
 			System.err.println("Attributes: 想定外の値");
 		}
+		//確認
+		/*
+		for(String aKey : this.keys) {
+			System.out.println("キー" + aKey);
+		}*/
 	}
 	
 	/**
