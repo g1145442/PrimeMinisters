@@ -150,9 +150,7 @@ public class Translator extends Object
 			output.add(values.get(attribute.indexOfName()));//氏名
 			output.add(values.get(attribute.indexOfKana()));//ふりがな
 			output.add(values.get(attribute.indexOfPeriod()));//在位期間
-			
 			output.add(this.computeNumberOfDays(values.get(attribute.indexOfPeriod())));//在位日数
-			
 			output.add(values.get(attribute.indexOfSchool()));//出身校
 			output.add(values.get(attribute.indexOfParty()));//政党
 			output.add(values.get(attribute.indexOfPlace()));//出身地
