@@ -8,10 +8,16 @@ class Attributes(object):
 		"""入力用("input")または出力用("output")で属性リストを作成するコンストラクタ。"""
 		self._keys = []
 		self._names = []
-		a_list = kind_string.split(',')
-		for i in range(len(a_list)):
-			self._keys.append(i)
-			self._names.append(a_list[i])
+		
+		if kind_string == 'input':
+			self._keys = ['no','order','names','kana','period','school'.'party','birth','image','thumbnail']
+			self._names = ['人目','代','氏名','ふりがな','在位期間','出身校'.'政党','出身地','画像','サムネイル']
+		elif kind_string == 'output':
+			self._keys = ['no','order','names','kana','period','day','school'.'party','birth','image','thumbnail']
+			self._names = ['人目','代','氏名','ふりがな','在位期間','在位日数','出身校'.'政党','出身地','画像','サムネイル']
+		else:
+			print '不正な値です'
+
 		return
 
 	def __str__(self):
