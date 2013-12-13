@@ -14,8 +14,8 @@ class Downloader(io.IO):
 	def __init__(self, base_directory):
 		"""ダウンローダのコンストラクタ。"""
 		self.base_directory = base_directory
-		#self.url = 'http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/CSV2HTML/PrimeMinisters'
-		#self.filename_of_csv = 'PrimeMinister.csv'
+		self.url = 'http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/CSV2HTML/PrimeMinisters'
+		self.filename_of_csv = 'PrimeMinister.csv'
 		return
 
 	def download_all(self):
