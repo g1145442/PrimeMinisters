@@ -15,7 +15,7 @@ class Tuple(object):
 		res = self.__class__.__name__
 		res += " = "
 		res += "\m\tvaluas -"
-		for var in self/values():
+		for var in self.values():
 			res += var+","
 		return res
 

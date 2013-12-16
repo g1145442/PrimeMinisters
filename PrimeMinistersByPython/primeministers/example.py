@@ -34,8 +34,8 @@ class Example(object):
 		# 出力となるテーブルを獲得する。
 		a_translator = translator.Translator(a_table)
 		a_table = a_translator.table()
-		print a_table
-        
+		#print a_table
+		
 		# ライタに出力となるテーブルを渡して、
 		# Webページを作成してもらう。
 		a_writer = writer.Writer(base_directory, a_table)

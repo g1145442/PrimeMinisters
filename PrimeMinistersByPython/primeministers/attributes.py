@@ -10,11 +10,11 @@ class Attributes(object):
 		self._names = []
 		
 		if kind_string == 'input':
-			self._keys = ['no','order','names','kana','period','school'.'party','birth','image','thumbnail']
-			self._names = ['人目','代','氏名','ふりがな','在位期間','出身校'.'政党','出身地','画像','サムネイル']
+			self._keys = ['no','order','names','kana','period','school','party','birth','image','thumbnail']
+			self._names = ['人目','代','氏名','ふりがな','在位期間','出身校','政党','出身地','画像','サムネイル']
 		elif kind_string == 'output':
-			self._keys = ['no','order','names','kana','period','day','school'.'party','birth','image','thumbnail']
-			self._names = ['人目','代','氏名','ふりがな','在位期間','在位日数','出身校'.'政党','出身地','画像','サムネイル']
+			self._keys = ['no','order','names','kana','period','day','school','party','birth','image','thumbnail']
+			self._names = ['人目','代','氏名','ふりがな','在位期間','在位日数','出身校','政党','出身地','画像','サムネイル']
 		else:
 			print '不正な値です'
 
