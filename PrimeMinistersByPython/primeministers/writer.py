@@ -34,7 +34,7 @@ class Writer(io.IO):
 			file.write("\t\t\t\t\t\t\t<td class=\"center-pink\"><strong>"+var+"</strong></td>\n")
 		file.write("\t\t\t\t\t\t<tr>\n")
 		count = 0;
-		for foo in self._table.tuple():
+		for foo in self._table.tuples():
 			file.write("\t\t\t\t\t\t<tr>\n");
 			for bar in foo.values():
 				if count%2==0:

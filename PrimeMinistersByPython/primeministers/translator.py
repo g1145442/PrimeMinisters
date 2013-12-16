@@ -22,7 +22,7 @@ class Translator(object):
 	def compute_string_of_days(self, period):
 		"""在位日数を計算して、それを文字列にして応答する。"""
 		
-		if period == '在位期間': return ['在位日数']
+		if period == '在位期間': return '在位日数'
 		
 		days = re.split(r'[〜年月日]*', period)
 		days.pop()
@@ -52,7 +52,6 @@ class Translator(object):
 
 		imageTag = "<a name="+a_no+" href="+a_image+"><img class=\"borderless\" src="+a_thumbnail+" width=\"25\" height=\"32\" alt="+a_no+".jpg></a>"
 		
-		
 		return imageTag
 
 	def table(self):
@@ -67,9 +66,9 @@ class Translator(object):
 			
 			keys = a_tuple.attributes().keys()
 			attributes = a_tuple.attributes()
+			
 			output = []
 			output.append(values[keys.index('no')])
-			print values[keys.index('no')]
 			output.append(values[keys.index('order')])
 			output.append(values[keys.index('names')])
 			output.append(values[keys.index('kana')])
@@ -82,6 +81,5 @@ class Translator(object):
 
 			output_tuple = tuple.Tuple(html_at, output)
 			self._output_table.add(output_tuple)
-			print self._output_table
 		
 		return self._output_table
