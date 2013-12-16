@@ -1,7 +1,7 @@
 package primeministers;
 
 import javax.swing.JOptionPane;
-
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -54,7 +54,6 @@ public class Translator extends Object
 		this.inputTable = aDownload.table();
 		aDownload.downloadImages();
 		aDownload.downloadThumbnails();
-		
 		Table aTable = this.table(this.inputTable);
 		
 		Writer aWriter = new Writer();
