@@ -71,7 +71,7 @@ class Downloader(io.IO):
 			except URLError, an_exception:
 				print an_exception.reason
 			try:
-				with open(self._base_directory + a_filename,'w') as local_file:
+				with open(self._base_directory + file_name,'w') as local_file:
 						shutil.copyfileobj(a_filename, local_file)
 			except IOError, an_exception:
 					print an_exception.reason
