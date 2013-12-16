@@ -61,25 +61,31 @@ class Translator(object):
 		
 		tuples = self._input_table.tuples()
 		
+		is_first = True
+		
 		for a_tuple in tuples:
-			values = a_tuple.values()
 			
-			keys = a_tuple.attributes().keys()
-			attributes = a_tuple.attributes()
+			if is_first:
+				is_first = False
+			else:
+				values = a_tuple.values()
 			
-			output = []
-			output.append(values[keys.index('no')])
-			output.append(values[keys.index('order')])
-			output.append(values[keys.index('names')])
-			output.append(values[keys.index('kana')])
-			output.append(values[keys.index('period')])
-			output.append(self.compute_string_of_days(values[keys.index('period')]))
-			output.append(values[keys.index('school')])
-			output.append(values[keys.index('party')])
-			output.append(values[keys.index('birth')])
-			output.append(self.compute_string_of_image(a_tuple))
+				keys = a_tuple.attributes().keys()
+				attributes = a_tuple.attributes()
+			
+				output = []
+				output.append(values[keys.index('no')])
+				output.append(values[keys.index('order')])
+				output.append(values[keys.index('names')])
+				output.append(values[keys.index('kana')])
+				output.append(values[keys.index('period')])
+				output.append(self.compute_string_of_days(values[keys.index('period')]))
+				output.append(values[keys.index('school')])
+				output.append(values[keys.index('party')])
+				output.append(values[keys.index('birth')])
+				output.append(self.compute_string_of_image(a_tuple))
 
-			output_tuple = tuple.Tuple(html_at, output)
-			self._output_table.add(output_tuple)
+				output_tuple = tuple.Tuple(html_at, output)
+				self._output_table.add(output_tuple)
 		
 		return self._output_table
