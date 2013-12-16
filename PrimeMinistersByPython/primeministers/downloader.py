@@ -20,13 +20,12 @@ class Downloader(io.IO):
 
 	def download_all(self):
 		"""すべて（総理大臣の情報を記したCSVファイル・画像ファイル群・縮小画像ファイル群）をダウンロードし、テーブルを応答する。"""
-		home_directory = os.environ['HOME']
-		images_directory = home_directory + '/Desktop/SouriDaijin/images'
+		images_directory = self._base_directory + 'images'
 		if os.path.isdir(images_directory):
 			shutil.rmtree(images_directory)
 		os.makedirs(images_directory)
 		
-		thumbnails_directory = home_directory + '/Desktop/SouriDaijin/thumbnails'
+		thumbnails_directory = self._base_directory + 'thumbnails'
 		if os.path.isdir(thumbnails_directory):
 			shutil.rmtree(thumbnails_directory)
 		os.makedirs(thumbnails_directory)
