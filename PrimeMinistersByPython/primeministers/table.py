@@ -9,6 +9,8 @@ class Table(object):
 	def __init__(self, kind_string):
 		"""テーブルのコンストラクタ。"""
 		self._attributes = attributes.Attributes(kind_string)
+		self._images = []
+		self._thumbnails = []
 		self._tuples = []
 		return
 
@@ -32,11 +34,11 @@ class Table(object):
 
 	def image_filenames(self):
 		"""画像ファイル群をリストにして応答する。"""
-		return None
+		return self._images
 
 	def thumbnail_filenames(self):
 		"""縮小画像ファイル群をリストにして応答する。"""
-		return None
+		return self._thumbnails
 	
 	def tuples(self):
 		"""タプル群を応答する。"""
