@@ -45,7 +45,7 @@ public class Translator extends Object
 	
 	/**
 	 * 総理大臣のCSVファイルをHTMLページへ変換する。
-	 * バグ（2013年12月8日）
+	 * 良好（2013年12月8日）
 	 */
 	public void perform()
 	{
@@ -84,7 +84,6 @@ public class Translator extends Object
 			yearTo = aCalendar.get(Calendar.YEAR);        //現在の年を取得
 			monthTo = aCalendar.get(Calendar.MONTH) + 1;  //現在の月を取得
 			dayTo = aCalendar.get(Calendar.DATE) + 1;     //現在の日を取得
-			
 		}
 		else
 		{
@@ -126,6 +125,7 @@ public class Translator extends Object
 		
 		return imageTag;
 	}
+	
 	/**
 	 * 総理大臣のCSVファイルを基にしたテーブルから、HTMLページを基にするテーブルに変換して、
 	 * それを応答する。

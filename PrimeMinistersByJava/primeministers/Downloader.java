@@ -10,7 +10,7 @@ import java.net.MalformedURLException;
 
 /**
  * ダウンローダ：総理大臣のCSVファイル・画像ファイル・サムネイル画像ファイルをダウンロードする。
- * バグ（2013年12月9日）
+ * 良好（2013年12月16日）
  */
 public class Downloader extends IO
 {
@@ -44,9 +44,9 @@ public class Downloader extends IO
 		ArrayList<String> aCollection = IO.readTextFromURL(this.url);
 		File aFile = new File(IO.directoryOfPages(),"PrimeMinisters.csv");
 		IO.writeText(aCollection, aFile);
+		
 		return;
 	}
-	
 	
 	/**
 	 * 総理大臣の画像群をダウンロードする。
@@ -54,50 +54,14 @@ public class Downloader extends IO
 	 */
 	public void downloadImages()
 	{
-		ArrayList<BufferedImage> images = this.table.images();
 		File aFile = new File(IO.directoryOfPages(),"images");
 		if(aFile.exists() == false)
 		{
 			aFile.mkdir();
 		}
+		int index = this.table.attributes().indexOfImage();
+		this.downloadPictures(index);
 		
-		int index = 0;
-		String aString = null;
-		URL aURL = null;
-		BufferedImage anImage = null;
-		for(Tuple aTuple : this.table().tuples())
-		{
-			index = aTuple.attributes().indexOfImage();
-			aString = (aTuple.values().get(index));
-			try
-			{
-				aURL = new URL(this.urlString()+aTuple.values().get(index));
-			}
-			catch (MalformedURLException anException)
-			{
-				anException.printStackTrace();
-			}
-			
-			try
-			{
-				anImage = ImageIO.read(aURL);
-				System.out.println(this.urlString()+aTuple.values().get(index));
-			}
-			catch (IOException anException)
-			{
-				anException.printStackTrace();
-			}
-			images.add(anImage);
-			
-			try
-			{
-				ImageIO.write(anImage, "jpeg", new File(IO.directoryOfPages(),aString));
-			}
-			catch (IOException anException)
-			{
-				anException.printStackTrace();
-			}
-		}
 		return;
 	}
 	
@@ -107,33 +71,14 @@ public class Downloader extends IO
 	 */
 	private void downloadPictures(int indexOfPicture)
 	{
-		return;
-	}
-	
-	/**
-	 * 総理大臣の画像群をダウンロードする。
-	 * 良好（2013年12月9日）
-	 */
-	public void downloadThumbnails()
-	{
-		ArrayList<BufferedImage> thumbnails = this.table.thumbnails();
-		File aFile = new File(IO.directoryOfPages(),"thumbnails");
-		if(aFile.exists() == false)
-		{
-			aFile.mkdir();
-		}
-		
-		int index = 0;
-		String aString = null;
-		URL aURL = null;
-		BufferedImage anImage = null;
 		for(Tuple aTuple : this.table().tuples())
 		{
-			index = aTuple.attributes().indexOfThumbnail();
-			aString = (aTuple.values().get(index));
+			URL aURL = null;
+			BufferedImage anImage = null;
+			String aString = aTuple.values().get(indexOfPicture);
 			try
 			{
-				aURL = new URL(this.urlString()+aTuple.values().get(index));
+				aURL = new URL(this.urlString() + aString);
 			}
 			catch (MalformedURLException anException)
 			{
@@ -143,13 +88,12 @@ public class Downloader extends IO
 			try
 			{
 				anImage = ImageIO.read(aURL);
-				System.out.println(this.urlString()+aTuple.values().get(index));
+				System.out.println(this.urlString()+aTuple.values().get(indexOfPicture));
 			}
 			catch (IOException anException)
 			{
 				anException.printStackTrace();
 			}
-			thumbnails.add(anImage);
 			
 			try
 			{
@@ -159,7 +103,33 @@ public class Downloader extends IO
 			{
 				anException.printStackTrace();
 			}
+			
+			if (indexOfPicture == aTuple.attributes().indexOfThumbnail())
+			{
+				this.table.thumbnails().add(anImage);
+			}
+			else
+			{
+				this.table.images().add(anImage);
+			}
 		}
+		return;
+	}
+	
+	/**
+	 * 総理大臣の画像群をダウンロードする。
+	 * 良好（2013年12月9日）
+	 */
+	public void downloadThumbnails()
+	{
+		File aFile = new File(IO.directoryOfPages(),"thumbnails");
+		if(aFile.exists() == false)
+		{
+			aFile.mkdir();
+		}
+		int index = this.table.attributes().indexOfThumbnail();
+		this.downloadPictures(index);
+
 		return;
 	}
 	
@@ -196,7 +166,6 @@ public class Downloader extends IO
 	{
 		return "http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/CSV2HTML/PrimeMinisters/";
 	}
-	
 	
 	/**
 	 * 総理大臣の情報を記したCSVファイル在処(URL)を文字列で応答するクラスメソッド。

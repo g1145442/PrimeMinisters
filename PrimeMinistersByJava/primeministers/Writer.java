@@ -75,7 +75,6 @@ public class Writer extends IO
 		return super.table();
 	}
 
-	
 	/**
 	 * タプル群を応答する。
 	 * 良好（2013年12月9日）
@@ -92,7 +91,8 @@ public class Writer extends IO
 	public void writeAttributesOn(BufferedWriter outputWriter)
 	{
 		ArrayList<String> strings = attributes().names();
-		try {
+		try
+		{
 			outputWriter.write("\t\t<tr>\n");
 			for(String aString: strings)
 			{
