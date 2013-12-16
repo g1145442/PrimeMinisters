@@ -34,15 +34,16 @@ class Downloader(io.IO):
 		self.download_csv()
 		a_reader = reader.Reader(self._base_directory+self._filename_of_csv)
 		
+		a_table=a_reader.table()
 		
-		#ここ使えたら後いけると思うbyゆーた
-		"""images_names=self._base_directory.image_filenames()
-		self.download_images(image_names)
+		#ここから下使えたら後いけると思うbyゆーた
+		images_names=a_table.image_filenames()
+		self.download_images(images_names)
 		
-		thumbnails_names=self._base_directory.thumbnail_filenames()
+		thumbnails_names=a_table.thumbnail_filenames()
 		self.download_images(thumbnails_names)
-		"""
-		return a_reader.table()
+		
+		return a_table
 
 	def download_csv(self):
 		"""総理大臣の情報を記したCSVファイルをダウンロードする。"""
@@ -61,6 +62,8 @@ class Downloader(io.IO):
 	def download_images(self, image_filenames):
 		"""画像ファイル群または縮小画像ファイル群をダウンロードする。"""
 # 		http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/CSV2HTML/PrimeMinisters/images/039.jpg
+
+		print image_filenames
 
 		for file_name in image_filenames:
 			try:
