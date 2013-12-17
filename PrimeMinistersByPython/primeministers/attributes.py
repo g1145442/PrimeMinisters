@@ -22,15 +22,15 @@ class Attributes(object):
 
 	def __str__(self):
 		"""自分自身を文字列にして、それを応答する。"""
-		res = self.__class__.__name__
-		res += " = "
-		res += "\n\tkeys -"
-		for var in self.keys():
-			res += str(var)+", "
-		res += "\n\tnames - "
-		for var in self.names():
-			res += var+", "
-		return res
+		a_string = self.__class__.__name__
+		a_string += " = "
+		a_string += "\n\tkeys -"
+		for a_key in self.keys():
+			a_string += a_key + ", "
+		a_string += "\n\tnames - "
+		for a_name in self.names():
+			a_string += a_name + ", "
+		return a_string
 
 	def keys(self):
 		"""キー群を応答する。"""
