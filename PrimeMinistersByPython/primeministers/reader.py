@@ -23,8 +23,5 @@ class Reader(io.IO):
 		with open(self._csv_filename,'rU') as aFile:
 			reader = csv.reader(aFile)
 			for row in reader:
-				if is_first:
-					is_first = False
-				else:
-					csv_table.add(tuple.Tuple(csv_table.attributes(), row))
+				csv_table.add(tuple.Tuple(csv_table.attributes(), row))
 		return csv_table
