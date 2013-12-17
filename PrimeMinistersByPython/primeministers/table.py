@@ -8,6 +8,7 @@ class Table(object):
 
 	def __init__(self, kind_string):
 		"""テーブルのコンストラクタ。"""
+		self._kind_string = kind_string
 		self._attributes = attributes.Attributes(kind_string)
 		self._images = []
 		self._thumbnails = []
@@ -25,6 +26,11 @@ class Table(object):
 
 	def add(self, tuple):
 		"""タプルを追加する。"""
+		values = tuple.values()
+		keys = tuple.attributes().keys()
+		self._images.append(values[keys.index('image')])
+		if self._kind_string == 'input':
+			self._thumbnails.append(values[keys.index('thumbnail')])
 		self._tuples.append(tuple)
 		return
 
