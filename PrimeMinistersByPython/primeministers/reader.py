@@ -19,8 +19,12 @@ class Reader(io.IO):
 	def table(self):
 		"""ダウンロードしたCSVファイルを読み込んでテーブルを応答する。"""
 		csv_table = table.Table('input')
+		is_first = True
 		with open(self._csv_filename,'rU') as aFile:
 			reader = csv.reader(aFile)
 			for row in reader:
-				csv_table.add(tuple.Tuple(csv_table.attributes(), row))
+				if is_first:
+					is_first = False
+				else:
+					csv_table.add(tuple.Tuple(csv_table.attributes(), row))
 		return csv_table
