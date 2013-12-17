@@ -16,6 +16,7 @@ class Downloader(io.IO):
 		self._base_directory = base_directory
 		self._url = 'http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/CSV2HTML/PrimeMinisters/'
 		self._filename_of_csv = 'PrimeMinisters.csv'
+		
 		return
 
 	def download_all(self):
@@ -31,14 +32,12 @@ class Downloader(io.IO):
 		os.makedirs(thumbnails_directory)
 
 		self.download_csv()
-		a_reader = reader.Reader(self._base_directory+self._filename_of_csv)
+		a_reader = reader.Reader(self._base_directory + self._filename_of_csv)
+		a_table = a_reader.table()
 		
-		a_table=a_reader.table()
-		
-		images_names=a_table.image_filenames()
+		images_names = a_table.image_filenames()
 		self.download_images(images_names)
-		
-		thumbnails_names=a_table.thumbnail_filenames()
+		thumbnails_names = a_table.thumbnail_filenames()
 		self.download_images(thumbnails_names)
 		
 		return a_table
@@ -50,12 +49,13 @@ class Downloader(io.IO):
 		except URLError, an_exception:  
 			print an_exception.reason
 		try: 
-			with open(self._base_directory + self._filename_of_csv ,'w') as local_file:
-					shutil.copyfileobj(a_url, local_file)
+			with open(self._base_directory + self._filename_of_csv ,'w') as a_file:
+					shutil.copyfileobj(a_url, a_file)
 		except IOError, an_exception:
 			print an_exception.reason
 		a_url.close()
-		return None
+		
+		return
 
 	def download_images(self, image_filenames):
 		"""画像ファイル群または縮小画像ファイル群をダウンロードする。"""
@@ -66,11 +66,10 @@ class Downloader(io.IO):
 			except URLError, an_exception:
 				print an_exception.reason
 			try:
-				with open(self._base_directory + filename,'w') as local_file:
-						shutil.copyfileobj(a_url, local_file)
+				with open(self._base_directory + filename,'w') as a_file:
+					shutil.copyfileobj(a_url, a_file)
 			except IOError, an_exception:
-					print an_exception.reason
+				print an_exception.reason
 			a_url.close()
-		a_reader = reader.Reader(self._filename_of_csv)
-		
+
 		return
