@@ -28,9 +28,10 @@ class Table(object):
 		"""タプルを追加する。"""
 		values = tuple.values()
 		keys = tuple.attributes().keys()
-		self._images.append(values[keys.index('image')])
-		if self._kind_string == 'input':
-			self._thumbnails.append(values[keys.index('thumbnail')])
+		if values[keys.index('image')] != '画像':
+			self._images.append(values[keys.index('image')])
+			if self._kind_string == 'input':
+				self._thumbnails.append(values[keys.index('thumbnail')])
 		self._tuples.append(tuple)
 		return
 
